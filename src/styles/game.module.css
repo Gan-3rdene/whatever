@@ -1,0 +1,34 @@
+
+.gamePart {
+    width: 50%;
+    height: 60%;
+}
+
+.column {
+    align-items: center;
+}
+
+.checked {
+    color: orange;
+}
+
+.endRow {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 6px;
+}
+
+.endRow > p {
+    font-size: 3vmin;
+}
+
+.comment > img {
+    border-radius: 50%;
+}
+
+.column > .row {
+    width: 50%;
+    justify-content: start !important;
+}

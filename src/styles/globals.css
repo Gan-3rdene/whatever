@@ -1,7 +1,7 @@
-:root {
+/* :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
+  --foreground: #000000;
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -14,6 +14,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  /* background-color: blue; */
 }
 
 body {
@@ -38,5 +39,279 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+
+/* nav bar */
+
+nav {
+  display: flex;
+  height: 80px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px;
+} 
+
+/* ham mneu */
+
+.offscreen {
+  background-color: white;
+  width: 15%;
+  height: 15%;
+  position: fixed;
+  top: 10%;
+  left: -450px;
+  list-style-type: none;
+  /* border: 1px;
+  border-style: solid; */
+}
+.offscreen li {
+  margin: 4px;
+}
+.offscreen ul {
+  list-style-type: none;
+}
+.offscreen.active {
+  left: 1.5%;
+}
+
+.ham-menu {
+  height: 50px;
+  width: 50px;
+  /* margin-left: auto; */
+  position: relative;
+  /* align-items: center; */
+}
+.ham-menu span {
+  height: 2.5px;
+  width: 80%;
+  background-color: black;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  /* left: 50%;  */
+  translate: translate(-50%, -50%);
+  transition: .3s ease;
+}
+.ham-menu span:nth-child(1) {
+  top: 25%;
+}
+.ham-menu span:nth-child(3) {
+  top: 75%;
+}
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(0%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(0%, -50%) rotate(-45deg);
+}
+
+.webIcon {
+  height: 50px;
+  width: 50px;
+}
+
+.searchBar {
+  height: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+}
+.searchBar > input {
+  width: 90%;
+}
+
+.navSearch {
+  height: 100%;
+}
+
+input {
+  border: none;
+}
+.searchIcon {
+  width: 1vw;
+  height: 100%;
+  background-color: none;
+}
+button {
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+/* general */
+.line {
+  width: 90%;
+  align-self: center;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(183, 183, 183);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px;
+}
+.row > *{ /*space between children in row*/
+  margin: 6px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  margin: 10px;
+  padding: 6px;
+}
+.column > *{
+  margin: 2px;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  margin: 6px;
+}
+
+
+/* game cards */
+
+.gameCard {
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameImage {
+  width: inherit;
+  height: 50%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.cardRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: scroll;
+  margin-bottom: 10px;
+  /* padding: 6px; */
+  /* border: 1px;
+  border-style: solid; */
+}
+.cardRow::-webkit-scrollbar{
+  height: 5px;
+  color: rgb(194, 194, 194);
+}
+.cardRow::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.cardRow::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.cardRow::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.cardRow > *{ /*space between children in row*/
+  margin-right: 40px;
+}
+
+.tags {
+  color: red;
+}
+
+/* move to game .css later */
+.earnings {
+  color: rgb(3, 213, 3);
+}
+
+.pcollection {
+  justify-content: start;
+}
+
+footer {
+  width: 100%;
+  background-color: white;
+  padding: 20px 0;
+  box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+  transform: translateY(-3px);
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #4facfe;
+}
+
+
+@media (max-width: 768px) {
+  /* nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .searchBar {
+    width: 100%;
+  } */
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
   }
 }
