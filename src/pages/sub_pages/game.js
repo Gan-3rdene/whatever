@@ -2,7 +2,6 @@ import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import gamestyles from "@/styles/game.module.css";
-// import global from "@/styles/globals.module.css";
 import Navigation from "../reusable/nav.js";
 import Footer from "../reusable/footer.js";
 
@@ -33,8 +32,10 @@ export default function Game() {
         <div
           classNameName={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
         >
+            
             <main className="column">
-                {/* <script src="./javascript/mainhtml.js"></script> */}
+                <div className="line">
+                </div>
                 <div class={gamestyles.column}>
                     <img class={gamestyles.gamePart} src="../resources/screenshot/snake.png"/>
                     <div class={gamestyles.endRow}>
@@ -52,7 +53,7 @@ export default function Game() {
                         </div>
                         <div class={gamestyles.row}>
                             <div class={gamestyles.column}>
-                                <img src="../resources/circle-user-round.svg"/>
+                                <img src="/resources/circle-user-round.svg"/>
                                 <p>Qewp123</p>
                             </div>
                             <p>Classic but gold, def worth your time!</p>

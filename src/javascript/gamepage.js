@@ -1,11 +1,29 @@
-const hamMenu = document.querySelector('.ham-menu');
+// import { useEffect } from "react";
 
-const offScreenMenu = document.querySelector('.offscreen');
+// useEffect(() => {
+//     const hamMenu = document.querySelector(".ham-menu");
+//     const offScreenMenu = document.querySelector('.offscreen');
+//     hamMenu.addEventListener("click", () => {
+//         hamMenu.classList.toggle('active');
+//         offScreenMenu.classList.toggle('active');
+//     });
 
-hamMenu.addEventListener('click', () => {
-    hamMenu.classList.toggle('active');
-    offScreenMenu.classList.toggle('active');
-})
+//     return () => {
+//         hamMenu.removeEventListener("click", () => {
+//             hamMenu.classList.toggle('active');
+//             offScreenMenu.classList.toggle('active');
+//         });
+//     }
+// }, []);
+
+// const hamMenu = document.querySelector('.ham-menu');
+
+// const offScreenMenu = document.querySelector('.offscreen');
+
+// hamMenu.addEventListener('click', () => {
+//     hamMenu.classList.toggle('active');
+//     offScreenMenu.classList.toggle('active');
+// })
 
 function changeToLibrary(){
     // var url = "https://gan-3rdene.github.io/sub_pages/library.html";

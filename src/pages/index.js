@@ -4,7 +4,7 @@ import styles from "@/styles/Home.module.css";
 import Navigation from "./reusable/nav.js";
 import Footer from "./reusable/footer.js";
 import Script from "next/script.js";
-// import { changeToGame } from "@/javascript/mainhtml.js";
+import GameCard from "./reusable/gamecard.js";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,13 +44,16 @@ export default function Home() {
             <div className="column" id="padding">
                 <p>Latest Games</p>
                 <div className="cardRow">
-                  <div className="gameCard" onClick={ChangeToGame}>
+                  <GameCard image="../resources/snake.jpg" title = "Snake" tags = "2D, puzzle">
+
+                  </GameCard>
+                  {/* <div className="gameCard" onClick={ChangeToGame}>
                       <img className="gameimg" src="../resources/snake.jpg" alt="Snake"/>
                       <div className="pcollection">
                         <p>Snake</p>
                         <p className="tags">2D, Puzzle</p>
                       </div>
-                  </div>
+                  </div> */}
                   
                   <div className="gameCard">
                       <img className="gameimg" src="../resources/ape.jpg" alt="Ape"/>
