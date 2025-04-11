@@ -41,17 +41,17 @@ export default function Home() {
             <div className="column" id="padding">
                 <p>Latest Games</p>
                 <div className="cardRow">
-                  <GameCard image="../resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
+                  <GameCard image="./resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
                   
-                  <GameCard image="../resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
+                  <GameCard image="./resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
                   
-                  <GameCard image="../resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
+                  <GameCard image="./resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
               
-                  <GameCard image="../resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard>
+                  <GameCard image="./resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard>
                 </div>
                 <p>Popular Games</p>
                 <div className="cardRow">
-                  <GameCard image="../resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
+                  <GameCard image="./resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
                   {/* <div className="gameCard">
                       <img className="gameimg" src="../resources/hedgehog.jpg" alt="hedgehog"/>
                       <div className="pcollection">
@@ -59,7 +59,7 @@ export default function Home() {
                         <p className="tags">Platform</p>
                       </div>
                   </div> */}
-                  <GameCard image="../resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
+                  <GameCard image="./resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
                   {/* <div className="gameCard">
                       <img className="gameimg" src="../resources/ape.jpg" alt="Ape"/>
                       <div className="pcollection">
@@ -67,7 +67,7 @@ export default function Home() {
                         <p className="tags">Action</p>
                       </div>
                   </div> */}
-                  <GameCard image="../resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
+                  <GameCard image="./resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
                   {/* <div className="gameCard" onClick="changeToGame()">
                       <img className="gameimg" src="/resources/snake.jpg" alt="Snake"/>
                       <div className="pcollection">
@@ -75,7 +75,7 @@ export default function Home() {
                         <p className="tags">2D, Puzzle</p>
                       </div>
                   </div> */}
-                  <GameCard image="../resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard>
+                  <GameCard image="./resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard>
                   {/* <div className="gameCard">
                       <img className="gameimg" src="../resources/angrybird.jpg" alt="Snake"/>
                       <div className="pcollection">

@@ -19,13 +19,18 @@ export default function Navigation() {
     }, []);
 
     const ChangeToLibrary = () => {
-        window.location.replace("/sub_pages/library");
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.startsWith("/sub_pages") ?  "./library" : "./sub_pages/library";
+        window.location.replace(basePath);
+        // window.location.replace("./sub_pages/library");
     };
     const ChangeToMain = () => {
         window.location.replace("/whatever");
     };
     const ChangeToSignUp = () => {
-        window.location.replace("/sub_pages/login");
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.startsWith("/sub_pages") ?  "./login" : "./sub_pages/login";
+        window.location.replace(basePath);
     };
 
     return (
