@@ -2,7 +2,9 @@
 
 const GameCard = ({image, title, tags, description}) => {
     const ChangeToGame = () => {
-        window.location.replace("/game");
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.startsWith("/sub_pages") ?  "./game" : "/sub_pages/game";
+        window.location.replace(basePath);
     };
     return (
         <div className="gameCard" onClick={ChangeToGame}>

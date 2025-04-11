@@ -30,5 +30,5 @@
 
 .column > .row {
     width: 50%;
-    justify-content: start !important;
+    justify-content: center !important;
 }

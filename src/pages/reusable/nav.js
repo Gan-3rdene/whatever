@@ -22,7 +22,7 @@ export default function Navigation() {
         window.location.replace("/sub_pages/library");
     };
     const ChangeToMain = () => {
-        window.location.replace("/");
+        window.location.replace("/whatever");
     };
     const ChangeToSignUp = () => {
         window.location.replace("/sub_pages/login");

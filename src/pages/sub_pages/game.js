@@ -32,33 +32,31 @@ export default function Game() {
         <div
           classNameName={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
         >
-            
             <main className="column">
                 <div className="line">
                 </div>
                 <div class={gamestyles.column}>
                     <img class={gamestyles.gamePart} src="../resources/screenshot/snake.png"/>
                     <div class={gamestyles.endRow}>
-                        <p>Snake</p>
-                            <div class={gamestyles.row}>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                        <div class={gamestyles.endRow}>
-                            <input type="text" placeholder="Leave a comment."/>
-                        </div>
-                        <div class={gamestyles.row}>
-                            <div class={gamestyles.column}>
-                                <img src="/resources/circle-user-round.svg"/>
-                                <p>Qewp123</p>
-                            </div>
-                            <p>Classic but gold, def worth your time!</p>
-                        </div>
-                    {/* <script src="../javascript/gamepage.js"></script> */}
+                      <p>Snake</p>
+                          <div class={gamestyles.row}>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                          </div>
+                    </div>
+                    <div class={gamestyles.endRow}>
+                        <input type="text" placeholder="Leave a comment."/>
+                    </div>
+                    <div class={gamestyles.row}>
+                      <div class={gamestyles.column}>
+                        <img src="/resources/circle-user-round.svg"/>
+                        <p>Qewp123</p>
+                      </div>
+                        <p>Classic but gold, def worth your time!</p>
+                    </div>
                 </div>
             </main>
 
