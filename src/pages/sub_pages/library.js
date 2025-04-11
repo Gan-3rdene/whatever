@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navigation from "../reusable/nav.js";
 import Footer from "../reusable/footer.js";
+import Revenue from "../reusable/plot.js";
+import GameCard from "../reusable/gamecard.js";
 
 export default function Library() {
     const ChangeToGame = () => {
@@ -29,7 +31,8 @@ export default function Library() {
                 </div>
                 <div class="column" id="padding">
                     <p>My Games</p>
-                    <div class="cardRow">
+                    <Revenue></Revenue>
+                    {/* <div class="cardRow">
                         <div class="gameCard" onClick={ChangeToGame}>
                             <img class="gameImage" src="../resources/snake.jpg" alt="Snake"/>
                             <div class="pcollection">
@@ -41,45 +44,19 @@ export default function Library() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
             
                     <p>Played Games</p>
                     <div class="cardRow">
-                        <div class="gameCard" onclick={ChangeToGame}>
-                            <img class="gameImage" src="../resources/snake.jpg" alt="Snake"/>
-                            <div class="pcollection">
-                            <p>Snake</p>
-                            <p class="tags">2D, Puzzle</p>
-                            </div>
-                        </div>
-                        <div class="gameCard">
-                            <img class="gameImage" src="../resources/ape.jpg" alt="Ape"/>
-                            <div class="pcollection">
-                            <p>Ape out</p>
-                            <p class="tags">Action</p>
-                            </div>
-                        </div>
-                        <div class="gameCard">
-                            <img class="gameImage" src="../resources/hedgehog.jpg" alt="hedgehog"/>
-                            <div class="pcollection">
-                            <p>Sonic</p>
-                            <p class="tags">Platform</p>
-                            </div>
-                        </div>
-                        <div class="gameCard">
-                            <img class="gameImage" src="..\resources\angrybird.jpg" alt="Snake"/>
-                            <div class="pcollection">
-                            <p>Angrybird</p>
-                            <p class="tags">Puzzle</p>
-                            </div>
-                        </div>
+                        <GameCard image="../resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
+                        <GameCard image="../resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
+                        <GameCard image="../resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
+                        <GameCard image="../resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard>
                     </div>
                 </div>
             </main>
-
             <Footer>
             </Footer>
-
         </div>
     </>
     );
