@@ -51,7 +51,7 @@ export default function Navigation() {
                     <span></span>
                 </div>
                 <div className="row" onClick={ChangeToMain}>
-                    <img className="webIcon" src={currentPath.startsWith("whatever") ? "./resources/cartridge.jpg" : "../resources/cartridge.jpg"} alt="cartridge"/>
+                    <img className="webIcon" src="/whatever/resources/cartridge.jpg" alt="cartridge"/>
                     <p>Whatever Games</p>
                 </div>
             </div>
