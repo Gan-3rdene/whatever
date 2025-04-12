@@ -21,8 +21,8 @@ export default function Navigation() {
     const ChangeToLibrary = () => {
         // const currentPath = window.location.pathname;
         // const basePath = currentPath.startsWith("/sub_pages") ?  "./library" : "./sub_pages/library";
-        basePath = "/sub_pages/library"
-        window.location.replace(basePath);
+        // basePath = "/sub_pages/library"
+        window.location.replace("/sub_pages/library");
         // window.location.replace("./sub_pages/library");
     };
     const ChangeToMain = () => {
