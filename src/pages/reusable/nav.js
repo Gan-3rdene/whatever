@@ -58,11 +58,11 @@ export default function Navigation() {
             <div className="searchBar">
                 <input type="text" placeholder="Search for games" class="navSearch"/>
                 <button>
-                <img class="searchIcon" src="./resources/search.png" alt="searchIcon"/>
+                <img class="searchIcon" src="/whatever/resources/search.png" alt="searchIcon"/>
                 </button>
             </div>
             <div className="row" onclick={ChangeToSignUp}>
-                <img className="" src="./resources/circle-user-round.svg" alt="userIcon"/>
+                <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
                 <p>Sign up</p>
             </div>
         </nav>

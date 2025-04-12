@@ -2,8 +2,9 @@
 
 const GameCard = ({image, title, tags, description}) => {
     const ChangeToGame = () => {
-        const currentPath = window.location.pathname;
-        const basePath = currentPath.startsWith("/whatever") ?  "./sub_pages/game" : "./game";
+        // const currentPath = window.location.pathname;
+        // const basePath = currentPath.startsWith("/sub_pages") ? "./game" : "./sub_pages/game";
+        basePath = "./sub_pages/game"
         window.location.replace(basePath);
     };
     return (
