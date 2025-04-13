@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   basePath: '/whatever',
-  assetPrefix: '/whatever/resources',
+  assetPrefix: '/whatever/',
 };
 
 export default nextConfig;
