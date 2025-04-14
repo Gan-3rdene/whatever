@@ -22,7 +22,7 @@ export default function Navigation() {
         // const currentPath = window.location.pathname;
         // const basePath = currentPath.startsWith("/sub_pages") ?  "./library" : "./sub_pages/library";
         // basePath = "/sub_pages/library"
-        window.location.replace("/sub_pages/library");
+        window.location.replace("/whatever/sub_pages/library");
         // window.location.replace("./sub_pages/library");
     };
     const ChangeToMain = () => {

@@ -36,7 +36,7 @@ export default function Game() {
                 <div className="line">
                 </div>
                 <div class={gamestyles.column}>
-                    <img class={gamestyles.gamePart} src="../resources/screenshot/snake.png"/>
+                    <img class={gamestyles.gamePart} src="whatever/resources/screenshot/snake.png"/>
                     <div class={gamestyles.endRow}>
                       <p>Snake</p>
                           <div class={gamestyles.row}>
@@ -52,7 +52,7 @@ export default function Game() {
                     </div>
                     <div class={gamestyles.row}>
                       <div class={gamestyles.column}>
-                        <img src="/resources/circle-user-round.svg"/>
+                        <img src="/whatever/resources/circle-user-round.svg"/>
                         <p>Qewp123</p>
                       </div>
                         <p>Classic but gold, def worth your time!</p>
