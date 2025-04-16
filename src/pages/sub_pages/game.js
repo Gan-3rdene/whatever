@@ -36,7 +36,7 @@ export default function Game() {
                 <div className="line">
                 </div>
                 <div class={gamestyles.column}>
-                    <img class={gamestyles.gamePart} src="whatever/resources/screenshot/snake.png"/>
+                    <img class={gamestyles.gamePart} src="/whatever/resources/screenshot/snake.png"/>
                     <div class={gamestyles.endRow}>
                       <p>Snake</p>
                           <div class={gamestyles.row}>
