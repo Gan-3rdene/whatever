@@ -65,6 +65,7 @@ nav {
   border-bottom: 1px, black, solid;
   border-left: 1px, black, solid;
   border-right: 1px, black, solid;
+  z-index: 2;
   /* border: 1px;
   border-style: solid; */
 }

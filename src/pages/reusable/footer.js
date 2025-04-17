@@ -7,10 +7,10 @@ export default function Foot() {
                 <div class="footer-container">
                     <div class="social-icons">
                         <a href="#" class="social-icon">
-                        <img src="/resources/facebook.png" alt="Facebook"/>
+                        <img src="/whatever/resources/facebook.png" alt="Facebook"/>
                         </a>
                         <a href="#" class="social-icon">
-                        <img src="/resources/twitter.png" alt="X (Twitter)"/>
+                        <img src="/whatever/resources/twitter.png" alt="X (Twitter)"/>
                         </a>
                     </div>
                     <div class="footer-links">

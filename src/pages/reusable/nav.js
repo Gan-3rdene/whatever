@@ -19,13 +19,19 @@ export default function Navigation() {
     }, []);
 
     const ChangeToLibrary = () => {
-        window.location.replace("/sub_pages/library");
+        // const currentPath = window.location.pathname;
+        // const basePath = currentPath.startsWith("/sub_pages") ?  "./library" : "./sub_pages/library";
+        // basePath = "/sub_pages/library"
+        window.location.replace("/whatever/sub_pages/library");
+        // window.location.replace("./sub_pages/library");
     };
     const ChangeToMain = () => {
         window.location.replace("/whatever");
     };
     const ChangeToSignUp = () => {
-        window.location.replace("/sub_pages/login");
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.startsWith("/sub_pages") ?  "./login" : "./sub_pages/login";
+        window.location.replace(basePath);
     };
 
     return (
@@ -46,18 +52,18 @@ export default function Navigation() {
                     <span></span>
                 </div>
                 <div className="row" onClick={ChangeToMain}>
-                    <img className="webIcon" src="../resources/cartridge.jpg" alt="cartridge"/>
+                    <img className="webIcon" src="/whatever/resources/cartridge.jpg" alt="cartridge"/>
                     <p>Whatever Games</p>
                 </div>
             </div>
             <div className="searchBar">
                 <input type="text" placeholder="Search for games" class="navSearch"/>
                 <button>
-                <img class="searchIcon" src="../resources/search.png" alt="searchIcon"/>
+                <img class="searchIcon" src="/whatever/resources/search.png" alt="searchIcon"/>
                 </button>
             </div>
             <div className="row" onclick={ChangeToSignUp}>
-                <img className="" src="../resources/circle-user-round.svg" alt="userIcon"/>
+                <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
                 <p>Sign up</p>
             </div>
         </nav>
