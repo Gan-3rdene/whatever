@@ -5,7 +5,7 @@ import UploadGameForm from "../reusable/uploadgameForm.js";
 export default function UploadGamePage() {
   return (
     <>
-      <Header />
+      <Navigation />
       <UploadGameForm />
       <Footer />
     </>
