@@ -31,7 +31,7 @@ export default function Home() {
         <base href="/whatever/"/>
       </Head>
 
-      <Navigation></Navigation>
+      <Navigation/>
       <div
         classNameName={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >

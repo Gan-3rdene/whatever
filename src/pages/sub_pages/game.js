@@ -26,8 +26,7 @@ export default function Game() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         
-        <Navigation>
-        </Navigation>
+        <Navigation/>
         
         <div
           classNameName={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
