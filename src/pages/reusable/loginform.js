@@ -1,4 +1,4 @@
-// import styles from '@/styles/LoginForm.module.css';
+import styles from '@/styles/LoginForm.module.css';
 
 // import Navigation from "./nav.js";
 // import Footer from "./footer.js";
