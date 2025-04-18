@@ -5,7 +5,12 @@
 }
 
 .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin: 10px;
+    padding: 6px;
 }
 
 .checked {
@@ -29,6 +34,8 @@
 }
 
 .column > .row {
+    display: flex;
     width: 50%;
-    justify-content: start !important;
+    justify-content: start;
+    align-items: center;
 }
