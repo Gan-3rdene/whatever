@@ -1,4 +1,4 @@
-import styles from './UploadGameForm.module.css';
+import styles from '@/styles/UploadGameForm.module.css';
 
 export default function UploadGameForm() {
   return (
