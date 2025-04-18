@@ -8,7 +8,7 @@ export default function LoginForm() {
     <>
       {/* <Navigation>
       </Navigation> */}
-      <main>
+      <main className="center">
         <div className={styles.loginContainer}>
           <h1>Login</h1>
 

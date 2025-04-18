@@ -29,9 +29,10 @@ export default function Navigation() {
         window.location.replace("/whatever");
     };
     const ChangeToSignUp = () => {
-        const currentPath = window.location.pathname;
-        const basePath = currentPath.startsWith("/sub_pages") ?  "./login" : "./sub_pages/login";
-        window.location.replace(basePath);
+        // const currentPath = window.location.pathname;
+        // const basePath = currentPath.startsWith("/sub_pages") ?  "./login" : "./sub_pages/login";
+        // window.location.replace(basePath);
+        window.location.replace("/whatever/sub_pages/login");
     };
 
     return (
