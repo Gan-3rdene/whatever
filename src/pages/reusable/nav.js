@@ -34,6 +34,9 @@ export default function Navigation() {
         // window.location.replace(basePath);
         window.location.replace("/whatever/sub_pages/login");
     };
+    const ChangeToUpload = () => {
+        window.location.replace("/whatever/sub_pages/uploadgame");
+    };
 
     return (
         <>
@@ -41,7 +44,7 @@ export default function Navigation() {
             <ul>
                 <li>Browse Games</li>
                 <li onClick={ChangeToLibrary}>My Library</li>
-                <li>Upload Games</li>
+                <li onclick={ChangeToUpload}>Upload Games</li>
                 <li>Learn HTML/Java</li>
             </ul>
         </div>
