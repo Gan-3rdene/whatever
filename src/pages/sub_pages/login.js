@@ -1,12 +1,11 @@
-
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import LoginForm from "@/components/LoginForm";
+import Navigation from "../reusable/nav.js";
+import Footer from "../reusable/footer.js";
+import LoginForm from "../reusable/loginform.js";
 
 export default function LoginPage() {
   return (
     <>
-      <Header />
+      <Navigation />
       <LoginForm />
       <Footer />
     </>
