@@ -1,0 +1,95 @@
+.uploadContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .uploadForm {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .uploadImageContainer,
+  .gameDetails {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .uploadImageArea {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 260px;
+    text-align: center;
+    color: #555;
+    background-color: #f9f9f9;
+  }
+  
+  .fileInputContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    gap: 10px;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .fileInputLabel {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .fileStatus {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .uploadButton,
+  .uploadGameButton {
+    padding: 10px 20px;
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .gameNameInput,
+  .gameDescriptionInput,
+  .tagsInput,
+  .howToPlayInput {
+    width: 93%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .gameDescriptionInput {
+    height: 120px;
+    resize: vertical;
+  }
+  
+  .howToPlayInput {
+    height: 280px;
+    resize: vertical;
+  }
+  
+  .uploadGameButton {
+    float: right;
+  }
+  
