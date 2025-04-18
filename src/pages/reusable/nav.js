@@ -44,7 +44,7 @@ export default function Navigation() {
             <ul>
                 <li>Browse Games</li>
                 <li onClick={ChangeToLibrary}>My Library</li>
-                <li onclick={ChangeToUpload}>Upload Games</li>
+                <li onClick={ChangeToUpload}>Upload Games</li>
                 <li>Learn HTML/Java</li>
             </ul>
         </div>
@@ -66,7 +66,7 @@ export default function Navigation() {
                 <img class="searchIcon" src="/whatever/resources/search.png" alt="searchIcon"/>
                 </button>
             </div>
-            <div className="row" onclick={ChangeToSignUp}>
+            <div className="row" onClick={ChangeToSignUp}>
                 <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
                 <p>Sign up</p>
             </div>
