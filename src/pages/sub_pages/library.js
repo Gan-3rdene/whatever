@@ -29,19 +29,7 @@ export default function Library() {
                 <div class="column" id="padding">
                     <p>My Games</p>
                     <Revenue></Revenue>
-                    {/* <div class="cardRow">
-                        <div class="gameCard" onClick={ChangeToGame}>
-                            <img class="gameImage" src="../resources/snake.jpg" alt="Snake"/>
-                            <div class="pcollection">
-                                <p>Snake</p>
-                                <p>Plays: 240</p>
-                                <div class="row">
-                                    <p>Earnings: </p>
-                                    <p class="earnings">450$</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
+                    
             
                     <p>Played Games</p>
                     <div class="cardRow">

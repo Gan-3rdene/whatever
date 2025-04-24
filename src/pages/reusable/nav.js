@@ -55,16 +55,16 @@ export default function Navigation() {
                     <span></span>
                     <span></span>
                 </div>
-                <div className="row" onClick={ChangeToMain}>
+                <div className="logo" onClick={ChangeToMain}>
                     <img className="webIcon" src="/whatever/resources/cartridge.jpg" alt="cartridge"/>
                     <p>Whatever Games</p>
                 </div>
             </div>
             <div className="searchBar">
                 <input type="text" placeholder="Search for games" class="navSearch"/>
-                <button>
-                <img class="searchIcon" src="/whatever/resources/search.png" alt="searchIcon"/>
-                </button>
+                {/* <button> */}
+                    <img class="searchIcon" src="/whatever/resources/search.png" alt="searchIcon"/>
+                {/* </button> */}
             </div>
             <div className="row" onClick={ChangeToSignUp}>
                 <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
