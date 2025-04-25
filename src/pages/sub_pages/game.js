@@ -17,7 +17,9 @@ const geistSans = Geist({
   });
 
 
-export default function Game({data}) {
+  
+// export default function Game({data}) { #add later
+export default function Game() {
   // const [data, setData] = useState([]);
 
   // useEffect(() => {
@@ -60,16 +62,16 @@ export default function Game({data}) {
                 <div className="line">
                 </div>
                 <div class={gamestyles.column}>
-                    {data.map((game) => (
+                    {/* {data.map((game) => (
                       <img key={game.id} classname={gamestyles.gamePart} src={game.cover}></img>
-                    ))}
+                    ))} */}
                     {/* <img class={gamestyles.gamePart} src="/whatever/resources/screenshot/snake.png"/> */}
                     <div class={gamestyles.endRow}>
-                      {data.map((game) => (
+                      {/* {data.map((game) => (
                         <p key={game.id} className={gamestyles.title}>
                           {game.title}
                         </p>
-                      ))}
+                      ))} */}
                       <div class={gamestyles.row}>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -79,7 +81,7 @@ export default function Game({data}) {
                       </div>
                     </div>
                     <div class={gamestyles.startColumn}>
-                      {data.map((game) => (
+                      {/* {data.map((game) => (
                         <p key={game.id} className={gamestyles.title}>
                           Description: {game.description}
                         </p>
@@ -88,7 +90,7 @@ export default function Game({data}) {
                         <p key={game.id} className={gamestyles.title}>
                           How to play: {game.how_to_play}
                         </p>
-                      ))}
+                      ))} */}
                     </div>
                     <div className={gamestyles.smallLine}/>
                     <div class={gamestyles.endRow}>
@@ -111,14 +113,14 @@ export default function Game({data}) {
     );
   }
   
-export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/whatever/api/game/game');
-  const json = await res.json();
-  const data = Array.isArray(json) ? json : [json];
-  console.log("fetched: ",data);
-  return {
-    props: {
-      data,
-    },
-  };
-}
+// export async function getServerSideProps() {
+//   const res = await fetch('http://localhost:3000/whatever/api/game/game');
+//   const json = await res.json();
+//   const data = Array.isArray(json) ? json : [json];
+//   console.log("fetched: ",data);
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
