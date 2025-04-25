@@ -1,4 +1,4 @@
-// import "../../javascript/gamepage.js"
+import styles from "@/styles/nav.module.css"
 import { useEffect } from "react";
 
 export default function Navigation() {
@@ -19,19 +19,12 @@ export default function Navigation() {
     }, []);
 
     const ChangeToLibrary = () => {
-        // const currentPath = window.location.pathname;
-        // const basePath = currentPath.startsWith("/sub_pages") ?  "./library" : "./sub_pages/library";
-        // basePath = "/sub_pages/library"
         window.location.replace("/whatever/sub_pages/library");
-        // window.location.replace("./sub_pages/library");
     };
     const ChangeToMain = () => {
         window.location.replace("/whatever");
     };
     const ChangeToSignUp = () => {
-        // const currentPath = window.location.pathname;
-        // const basePath = currentPath.startsWith("/sub_pages") ?  "./login" : "./sub_pages/login";
-        // window.location.replace(basePath);
         window.location.replace("/whatever/sub_pages/login");
     };
     const ChangeToUpload = () => {
@@ -66,7 +59,7 @@ export default function Navigation() {
                     <img class="searchIcon" src="/whatever/resources/search.png" alt="searchIcon"/>
                 {/* </button> */}
             </div>
-            <div className="row" onClick={ChangeToSignUp}>
+            <div className={styles.signup} onClick={ChangeToSignUp}>
                 <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
                 <p>Sign up</p>
             </div>

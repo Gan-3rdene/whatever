@@ -194,6 +194,9 @@ button {
 .logo > p {
   color: orange;
 }
+.logo:hover {
+  cursor: pointer;
+}
 
 .column {
   display: flex;
@@ -349,3 +352,4 @@ footer {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
