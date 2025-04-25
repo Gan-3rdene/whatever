@@ -78,7 +78,11 @@ export default function Game({data}) {
                       </div>
                     </div>
                     <div class={gamestyles.column}>
-                      
+                      {data.map((game) => (
+                        <p key={game.id} className={gamestyles.title}>
+                          {game.description}
+                        </p>
+                      ))}
                     </div>
                     <div class={gamestyles.endRow}>
                         <input type="text" placeholder="Leave a comment."/>
