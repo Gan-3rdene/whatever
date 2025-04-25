@@ -1,12 +1,8 @@
 
 export default function handler(req, res) {
-    // if(req.method == 'POST') {
-
-    // } else {
-
-    // }
+    const {game} = req.query
     res.status(200).json({
-        game_id: "65210",
+        game_id: game,
         title: "Snake",
         description: "Classic puzzle game",
         tags: "2D, puzzle",

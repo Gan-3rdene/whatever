@@ -48,6 +48,7 @@ export default function Game({data}) {
           <meta name="description" content="Video game website" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         </Head>
         
         <Navigation/>
@@ -77,13 +78,19 @@ export default function Game({data}) {
                         <span class="fa fa-star"></span>
                       </div>
                     </div>
-                    <div class={gamestyles.column}>
+                    <div class={gamestyles.startColumn}>
                       {data.map((game) => (
                         <p key={game.id} className={gamestyles.title}>
-                          {game.description}
+                          Description: {game.description}
+                        </p>
+                      ))}
+                      {data.map((game) => (
+                        <p key={game.id} className={gamestyles.title}>
+                          How to play: {game.how_to_play}
                         </p>
                       ))}
                     </div>
+                    <div className={gamestyles.smallLine}/>
                     <div class={gamestyles.endRow}>
                         <input type="text" placeholder="Leave a comment."/>
                     </div>
