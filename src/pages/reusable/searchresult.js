@@ -4,6 +4,7 @@ export default function SearchResults({ results = [], onClose }) {
     const router = useRouter();
     
     const handleGameClick = (gameId) => {
+        router.push(`/sub_pages/game`);
         // router.push(`/whatever/src/pages/sub_pages/game?id=${gameId}`);
         onClose();
     };

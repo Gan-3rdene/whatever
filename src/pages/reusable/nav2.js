@@ -73,13 +73,13 @@ export default function Navigation() {
             </ul>
         </div>
         <nav>
-            <div className="row">
+            <div className="hoverable">
                 <div className="ham-menu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <div className="row" onClick={ChangeToMain}>
+                <div className="logo" onClick={ChangeToMain}>
                     <img className="webIcon" src="/whatever/resources/cartridge.jpg" alt="cartridge"/>
                     <p>Whatever Games</p>
                 </div>
@@ -104,7 +104,7 @@ export default function Navigation() {
                     />
                 )}
             </div>
-            <div className="row" onClick={ChangeToSignUp}>
+            <div className="hoverable" onClick={ChangeToSignUp}>
                 <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
                 <p>Sign up</p>
             </div>
