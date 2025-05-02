@@ -16,6 +16,6 @@ export function searchGames(query) {
   return games.filter(game => 
     game.title.toLowerCase().includes(normalizedQuery) || 
     game.tags.toLowerCase().includes(normalizedQuery)
-  );
+  ) || [];
 }
   
