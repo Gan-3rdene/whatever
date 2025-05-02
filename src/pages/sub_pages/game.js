@@ -65,7 +65,7 @@ export default function Game() {
                     {/* {data.map((game) => (
                       <img key={game.id} classname={gamestyles.gamePart} src={game.cover}></img>
                     ))} */}
-                    {/* <img class={gamestyles.gamePart} src="/whatever/resources/screenshot/snake.png"/> */}
+                    <img class={gamestyles.gamePart} src="/whatever/resources/screenshot/snake.png"/>
                     <div class={gamestyles.endRow}>
                       {/* {data.map((game) => (
                         <p key={game.id} className={gamestyles.title}>

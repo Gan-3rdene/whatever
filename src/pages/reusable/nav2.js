@@ -47,7 +47,7 @@ export default function Navigation() {
     };
 
     const ChangeToLibrary = () => {
-        window.location.replace("/whatever/src/pages/sub_pages/library");
+        window.location.replace("/whatever/sub_pages/library");
     };
     
     const ChangeToMain = () => {
@@ -55,11 +55,11 @@ export default function Navigation() {
     };
     
     const ChangeToSignUp = () => {
-        window.location.replace("/whatever/src/pages/sub_pages/login");
+        window.location.replace("/whatever/sub_pages/login");
     };
     
     const ChangeToUpload = () => {
-        window.location.replace("/whatever/src/pages/sub_pages/uploadgame");
+        window.location.replace("/whatever/sub_pages/uploadgame");
     };
 
     return (
