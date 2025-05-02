@@ -1,11 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-// export default function handler(req, res) {
-//   res.status(200).json({
-//     name: "JohnDo@",
-//     password: "GetHob@123"
-//   });
-// }
 export default function handler(req, res) {
     if (req.method == 'POST') {
         const{Username, Password, Gmail, Tel} = req.body;

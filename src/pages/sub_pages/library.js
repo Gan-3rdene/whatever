@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import Navigation from "../reusable/nav.js";
+import Navigation from "../reusable/nav2.js";
 import Footer from "../reusable/footer.js";
 import Revenue from "../reusable/plot.js";
 import GameCard from "../reusable/gamecard.js";

@@ -1,4 +1,4 @@
-import Navigation from "../reusable/nav.js";
+import Navigation from "../reusable/nav2.js";
 import Footer from "../reusable/footer.js";
 import UploadGameForm from "../reusable/uploadgameForm.js";
 
