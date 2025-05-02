@@ -145,6 +145,7 @@ nav {
 }
 
 .navSearch {
+  width:90%;
   height: 100%;
   padding: 8px;
 }
@@ -500,7 +501,7 @@ footer {
   font-size: 14px;
 }
 
-/* Add animations */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }

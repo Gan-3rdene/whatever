@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { searchGames } from "../sub_pages/searchservice";
+import { searchGames } from "../../utils/searchservice";
 import SearchResults from "./searchresult";
 
 export default function Navigation() {
