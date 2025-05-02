@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 PORT = 5002;
 
 DB_URL = 'mongodb://localhost:27017/local';
 app.use(express.json());
+app.use(cors());
 
 mongoose.connect(DB_URL);
 
