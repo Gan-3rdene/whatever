@@ -9,7 +9,7 @@ export default function LoginForm() {
   const ChangeToMain = () => {
     window.location.replace("/whatever");
   };
-  
+
   const handleSignupClick = () => {
     if(showSignup == false){
       setShowSignup(true);
@@ -21,7 +21,7 @@ export default function LoginForm() {
     const email = document.getElementById("email")?.value;
     const phone = document.getElementById("phone")?.value;
     try {
-      const response = await fetch("http://localhost:5002/userpost", {
+      const response = await fetch("http://localhost:5002/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
