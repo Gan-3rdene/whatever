@@ -1,8 +1,14 @@
 import styles from "@/styles/nav.module.css"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navigation() {
+    const [username, setUsername] = useState("");
     useEffect(() => {
+        const storedUsername = localStorage.getItem("username");
+        if(storedUsername) {
+            setUsername(storedUsername);
+        }
+
         const hamMenu = document.querySelector(".ham-menu");
         const offScreenMenu = document.querySelector('.offscreen');
         hamMenu.addEventListener("click", () => {
@@ -61,7 +67,7 @@ export default function Navigation() {
             </div>
             <div className={styles.signup} onClick={ChangeToSignUp}>
                 <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
-                <p>Sign up</p>
+                {username ? <p>{username}</p> : <p>Sign up</p>}
             </div>
         </nav>
         </>
