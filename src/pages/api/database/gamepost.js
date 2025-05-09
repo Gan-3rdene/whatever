@@ -51,3 +51,4 @@ app.post('/games', async(req, res) => {
 app.listen(PORT, ()=> {
     console.log("server running");
 })
+
