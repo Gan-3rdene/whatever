@@ -5,6 +5,8 @@ import Navigation from "./reusable/nav2.js";
 import Footer from "./reusable/footer.js";
 import Script from "next/script.js";
 import GameCard from "./reusable/gamecard.js";
+import { useEffect, useState } from "react";
+import NewsCard from "./reusable/newscard.js";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +22,43 @@ export default function Home() {
   // const ChangeToGame = () => {
   //   window.location.replace("./sub_pages/game");
   // };
+  const [games, setGames] = useState([]);
+  const apiKey = "8ca4ca222b19463aa56c28d3bd1df8f7"
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const response = await fetch("http://localhost:5001/gamesquery");
+        const data = await response.json();
+        setGames(data);
+      } catch (error) {
+        console.error("Error fetching games: ", error);
+      }
+    };
+    fetchGames();
+    const fetchNews = async () => {
+      try {
+        var url = 'https://newsapi.org/v2/everything?' +
+          'q=Games&' +
+          'from=2025-05-08&' +
+          'sortBy=popularity&' +
+          'apiKey=8ca4ca222b19463aa56c28d3bd1df8f7';
+        var req = new Request(url);
+
+        fetch(req)
+        .then(response => response.json())
+        .then(data => setNews(data))
+        // console.log(data)
+        .catch(error => console.error("Error fetching news:", error));
+      } catch(error) {
+        console.error("Get news error", error);
+      }
+    }
+    fetchNews();
+    
+  }, []);
+  
+  
 
   return (
     <>
@@ -42,13 +81,16 @@ export default function Home() {
             <div className="column" id="padding">
                 <p>Latest Games</p>
                 <div className="cardRow">
-                  <GameCard image="./resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
+                  {games.map((game) => (
+                    <GameCard key={game.game_id} image={game.cover} title={game.tags} />
+                  ))}
+                  {/* <GameCard image="./resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
                   
                   <GameCard image="./resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
                   
                   <GameCard image="./resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
               
-                  <GameCard image="./resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard>
+                  <GameCard image="./resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard> */}
                 </div>
                 <p>Popular Games</p>
                 <div className="cardRow">
@@ -85,71 +127,22 @@ export default function Home() {
                       </div>
                   </div> */}
                 </div>
+                <p>News</p>
+                <div className="cardRow">
+                  {news.articles?.map((article) => (
+                    <NewsCard key={article.author} image={article.urlToImage || "./resources/angrybird.jpg"} title={article.title} onClick={() => window.open(article.url, "_blank")}/>
+                  ))}
+                  {/* {games.map((game) => (
+                    <GameCard key={game.game_id} image={game.cover} title={game.tags} />
+                  ))} */}
+                </div>
             </div>
           </div>
         </main>
 
         <Footer>
         </Footer>
-        {/* <footer classNameName={styles.footer}>
-          <div class="footer-container">
-            <div class="social-icons">
-              <a href="#" class="social-icon">
-                <img src="./resources/facebook.png" alt="Facebook"/>
-              </a>
-              <a href="#" class="social-icon">
-                <img src="./resources/twitter.png" alt="X (Twitter)"/>
-              </a>
-            </div>
-            <div class="footer-links">
-              <a href="/about">About</a>
-              <a href="/faq">FAQ</a>
-              <a href="/contact">Contact Us</a>
-            </div>
-          </div>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              aria-hidden
-              src="/file.svg"
-              alt="File icon"
-              width={16}
-              height={16}
-            />
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              aria-hidden
-              src="/window.svg"
-              alt="Window icon"
-              width={16}
-              height={16}
-            />
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
-        </footer> */}
+        
       </div>
       <Script src="../javascript/mainhtml.js"></Script>
     </>

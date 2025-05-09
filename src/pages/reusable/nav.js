@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 export default function Navigation() {
     const [username, setUsername] = useState("");
+    
     useEffect(() => {
-        const storedUsername = localStorage.getItem("username");
+        const storedUsername = sessionStorage.getItem("username");
         if(storedUsername) {
             setUsername(storedUsername);
         }
@@ -31,7 +32,10 @@ export default function Navigation() {
         window.location.replace("/whatever");
     };
     const ChangeToSignUp = () => {
-        window.location.replace("/whatever/sub_pages/login");
+        const username = sessionStorage.getItem("username");
+        if(!username) {
+            window.location.replace("/whatever/sub_pages/login");
+        }
     };
     const ChangeToUpload = () => {
         window.location.replace("/whatever/sub_pages/uploadgame");

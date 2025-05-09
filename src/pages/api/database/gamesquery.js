@@ -29,7 +29,7 @@ const profileSchema = new mongoose.Schema({
 }, {collection: 'games'});
 const Game = mongoose.model('Game', profileSchema);
 
-app.get('/games', async(req, res) => {
+app.get('/gamesquery', async(req, res) => {
     try {
         const Games = await Game.find();
         res.json(Games);

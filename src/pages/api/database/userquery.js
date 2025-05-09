@@ -23,19 +23,34 @@ const profileSchema = new mongoose.Schema({
     username: String,
     password: String,
 }, {collection: 'users'});
-const User = mongoose.model('User', profileSchema);
 
-app.get('/users', async(req, res) => {
+const User = mongoose.models.User || mongoose.model('User', profileSchema);
+
+export default async function handler(req, res) {
+    if(req.method !== "GET") {
+        return res.status(405).json({message: "not allowed"});
+    }
     try {
         const users = await User.find();
-        res.json(users);
+        return res.json(users);
     }
     catch(error) {
         console.error(error);
-        res.status(500).send("Error");
+        return res.status(500).send("Error");
     }
-});
+}
 
-app.listen(PORT, ()=> {
-    console.log("server running");
-})
+// app.get('/users', async(req, res) => {
+//     try {
+//         const users = await User.find();
+//         res.json(users);
+//     }
+//     catch(error) {
+//         console.error(error);
+//         res.status(500).send("Error");
+//     }
+// });
+
+// app.listen(PORT, ()=> {
+//     console.log("server running");
+// })

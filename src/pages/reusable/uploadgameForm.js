@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function UploadGameForm() {
   const [username, setUsername] = useState("");
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
+    const storedUsername = sessionStorage.getItem("username");
     if(storedUsername) {
       setUsername(storedUsername);
     }
@@ -18,7 +18,7 @@ export default function UploadGameForm() {
     const cover = document.getElementById("fileInput").value;
     
     try {
-      const response = await fetch("http://localhost:5004/games", {
+      const response = await fetch("http://localhost:5004/gamepost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
