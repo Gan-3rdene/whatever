@@ -27,7 +27,7 @@ const profileSchema = new mongoose.Schema({
 }, {collection: 'users'});
 const User = mongoose.model('User', profileSchema);
 
-app.post('/users', async(req, res) => {
+app.post('/userpost', async(req, res) => {
     try {
         const newUser = await User({
             username: req.body.username,

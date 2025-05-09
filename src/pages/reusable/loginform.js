@@ -21,7 +21,7 @@ export default function LoginForm() {
     const email = document.getElementById("email")?.value;
     const phone = document.getElementById("phone")?.value;
     try {
-      const response = await fetch("http://localhost:5002/users", {
+      const response = await fetch("http://localhost:5002/userpost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,8 @@ export default function LoginForm() {
       const data = await response.json();
       if(response.ok) {
         // setUsername(username);
-        localStorage.setItem("username", username);
+        // localStorage.setItem("username", username);
+        sessionStorage.setItem("username", username);
         ChangeToMain();
       }
       else {
@@ -58,7 +59,8 @@ export default function LoginForm() {
       const data = await response.json();
       if(response.ok) {
         // setUsername(username);
-        localStorage.setItem("username", username);
+        // localStorage.setItem("username", username);
+        sessionStorage.setItem("username", username);
         ChangeToMain();
       }
       else {

@@ -6,10 +6,15 @@ export default function Navigation() {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [username, setUsername] = useState("");
     
     useEffect(() => {
         const hamMenu = document.querySelector(".ham-menu");
         const offScreenMenu = document.querySelector('.offscreen');
+        const storedUsername = sessionStorage.getItem("username");
+        if(storedUsername) {
+            setUsername(storedUsername);
+        }
         
         if (hamMenu && offScreenMenu) {
             hamMenu.addEventListener("click", () => {
@@ -55,7 +60,10 @@ export default function Navigation() {
     };
     
     const ChangeToSignUp = () => {
-        window.location.replace("/whatever/sub_pages/login");
+        const username = sessionStorage.getItem("username");
+        if(!username) {
+            window.location.replace("/whatever/sub_pages/login");
+        }
     };
     
     const ChangeToUpload = () => {
@@ -106,7 +114,7 @@ export default function Navigation() {
             </div>
             <div className="hoverable" onClick={ChangeToSignUp}>
                 <img className="" src="/whatever/resources/circle-user-round.svg" alt="userIcon"/>
-                <p>Sign up</p>
+                {username ? <p>{username}</p> : <p>Sign up</p>}
             </div>
         </nav>
         </>

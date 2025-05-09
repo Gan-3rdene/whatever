@@ -23,7 +23,28 @@ const profileSchema = new mongoose.Schema({
     username: String,
     password: String,
 }, {collection: 'users'});
-const User = mongoose.model('User', profileSchema);
+
+const User = mongoose.models.User || mongoose.model('User', profileSchema);
+
+// export default async function handler(req, res) {
+//     if (req.method !== "POST") {
+//         return res.status(405).json({message: "not allowed"});
+//     }
+//     try {
+//         const {username, password} = req.body;
+//         const user = await User.findOne({username, password});
+//         if(user) {
+//             return res.status(200).json({message: "Login success"});
+//         }
+//         else {
+//             return res.status(401).json({message: "Wrong password or username"});
+//         }
+//     }
+//     catch(error) {
+//         console.error(error);
+//         return res.status(500).send("Error logging in");
+//     }
+// }
 
 app.post('/login', async(req, res) => {
     const {username, password} = req.body;

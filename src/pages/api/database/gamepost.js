@@ -29,7 +29,7 @@ const gameSchema = new mongoose.Schema({
 }, {collection: 'games'});
 const Game = mongoose.model('Game', gameSchema);
 
-app.post('/games', async(req, res) => {
+app.post('/gamepost', async(req, res) => {
     try {
         const newGame = await Game({
             game_id: "",
