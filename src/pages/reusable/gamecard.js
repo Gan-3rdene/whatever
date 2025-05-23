@@ -1,9 +1,9 @@
 import styles from "@/styles/gamecard.module.css"
 
-const GameCard = ({image, title, tags, description}) => {
-
+const GameCard = ({image, title, tags, description, game_id}) => {
 
     const ChangeToGame = () => {
+        sessionStorage.setItem("selectedGameID", game_id);
         window.location.replace("/whatever/sub_pages/game");
     };
     return (

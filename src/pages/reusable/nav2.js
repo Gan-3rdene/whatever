@@ -67,17 +67,23 @@ export default function Navigation() {
     };
     
     const ChangeToUpload = () => {
-        window.location.replace("/whatever/sub_pages/uploadgame");
+        const username = sessionStorage.getItem("username");
+        if(username) {
+            window.location.replace("/whatever/sub_pages/uploadgame");
+        }
+        else {
+            ChangeToSignUp();
+        }
     };
 
     return (
         <>
         <div className="offscreen">
-            <ul>
-                <li>Browse Games</li>
-                <li onClick={ChangeToLibrary}>My Library</li>
-                <li onClick={ChangeToUpload}>Upload Games</li>
-                <li>Learn HTML/Java</li>
+            <ul className="list">
+                <li className="hover" onClick={ChangeToMain}>Browse Games</li>
+                <li className="hover" onClick={ChangeToLibrary}>My Library</li>
+                <li className="hover" onClick={ChangeToUpload}>Upload Games</li>
+                <li className="hover" >Learn HTML/Java</li>
             </ul>
         </div>
         <nav>

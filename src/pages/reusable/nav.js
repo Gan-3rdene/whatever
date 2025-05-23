@@ -45,10 +45,10 @@ export default function Navigation() {
         <>
         <div class = "offscreen">
             <ul>
-                <li>Browse Games</li>
-                <li onClick={ChangeToLibrary}>My Library</li>
-                <li onClick={ChangeToUpload}>Upload Games</li>
-                <li>Learn HTML/Java</li>
+                <li className="hoverable">Browse Games</li>
+                <li className="hoverable" onClick={ChangeToLibrary}>My Library</li>
+                <li className="hoverable" onClick={ChangeToUpload}>Upload Games</li>
+                <li className="hoverable" >Learn HTML/Java</li>
             </ul>
         </div>
         <nav>
