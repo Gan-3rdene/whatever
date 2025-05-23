@@ -35,31 +35,46 @@ export default function Home() {
         console.error("Error fetching games: ", error);
       }
     };
-    fetchGames();
-    const fetchNews = async () => {
-      try {
-        var url = 'https://newsapi.org/v2/everything?' +
-          'q=Games&' +
-          'from=2025-05-08&' +
-          'sortBy=popularity&' +
-          'apiKey=8ca4ca222b19463aa56c28d3bd1df8f7';
-        var req = new Request(url);
-
-        fetch(req)
-        .then(response => response.json())
-        .then(data => setNews(data))
-        // console.log(data)
-        .catch(error => console.error("Error fetching news:", error));
-      } catch(error) {
-        console.error("Get news error", error);
-      }
-    }
-    fetchNews();
     
+    fetchGames();
+    // const fetchNews = async () => {
+    //   try {
+    //     var url = 'https://newsapi.org/v2/everything?' +
+    //       'q=Games&' +
+    //       'from=2025-05-08&' +
+    //       'sortBy=popularity&' +
+    //       'apiKey=8ca4ca222b19463aa56c28d3bd1df8f7';
+    //     var req = new Request(url);
+
+    //     fetch(req)
+    //     .then(response => response.json())
+    //     .then(data => setNews(data))
+    //     // console.log(data)
+    //     .catch(error => console.error("Error fetching news:", error));
+    //   } catch(error) {
+    //     console.error("Get news error", error);
+    //   }
+    // }
+    // fetchNews();
+
+    const Getnews = async () => {
+      try {
+        const response = await fetch("http://localhost:5006/news");
+        if(!response.ok) {
+          throw new Error(`http error ${response.status}`);
+        }
+        const data = await response.json();
+        console.log("News", data);
+        setNews(data);
+      }
+      catch (error) {
+        console.log("Error catching news", error);
+      }
+    };
+    Getnews();
+
   }, []);
   
-  
-
   return (
     <>
       <Head>
@@ -82,60 +97,34 @@ export default function Home() {
                 <p>Latest Games</p>
                 <div className="cardRow">
                   {games.map((game) => (
-                    <GameCard key={game.game_id} image={game.cover} title={game.tags} />
+                    <GameCard key={game.game_id} image={game.cover} title={game.tags} game_id={game.game_id}/>
                   ))}
-                  {/* <GameCard image="./resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
                   
-                  <GameCard image="./resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
-                  
-                  <GameCard image="./resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
-              
-                  <GameCard image="./resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard> */}
                 </div>
                 <p>Popular Games</p>
                 <div className="cardRow">
                   <GameCard image="./resources/hedgehog.jpg" title = "Sonic" tags = "Platform"></GameCard>
-                  {/* <div className="gameCard">
-                      <img className="gameimg" src="../resources/hedgehog.jpg" alt="hedgehog"/>
-                      <div className="pcollection">
-                        <p>Sonic</p>
-                        <p className="tags">Platform</p>
-                      </div>
-                  </div> */}
                   <GameCard image="./resources/ape.jpg" title = "Ape out" tags = "Action"></GameCard>
-                  {/* <div className="gameCard">
-                      <img className="gameimg" src="../resources/ape.jpg" alt="Ape"/>
-                      <div className="pcollection">
-                        <p>Ape out</p>
-                        <p className="tags">Action</p>
-                      </div>
-                  </div> */}
                   <GameCard image="./resources/snake.jpg" title = "Snake" tags = "2D, puzzle"></GameCard>
-                  {/* <div className="gameCard" onClick="changeToGame()">
-                      <img className="gameimg" src="/resources/snake.jpg" alt="Snake"/>
-                      <div className="pcollection">
-                        <p>Snake</p>
-                        <p className="tags">2D, Puzzle</p>
-                      </div>
-                  </div> */}
                   <GameCard image="./resources/angrybird.jpg" title = "Angrybird" tags = "Puzzle"></GameCard>
-                  {/* <div className="gameCard">
-                      <img className="gameimg" src="../resources/angrybird.jpg" alt="Snake"/>
-                      <div className="pcollection">
-                        <p>Angrybird</p>
-                        <p className="tags">Puzzle</p>
-                      </div>
-                  </div> */}
                 </div>
                 <p>News</p>
                 <div className="cardRow">
-                  {news.articles?.map((article) => (
+                  {news.length > 0 ? (
+                    news.map((article) => (
+                      <NewsCard key={article.author} image={article.urlToImage || "./resources/angrybird.jpg"} title={article.title} onClick={() => window.open(article.url, "_blank")}/>
+                    ))
+                  ) : (
+                    <p>No news</p>
+                  )}
+                  {/* {news.articles?.map((article) => (
                     <NewsCard key={article.author} image={article.urlToImage || "./resources/angrybird.jpg"} title={article.title} onClick={() => window.open(article.url, "_blank")}/>
-                  ))}
+                  ))} */}
                   {/* {games.map((game) => (
                     <GameCard key={game.game_id} image={game.cover} title={game.tags} />
                   ))} */}
                 </div>
+                {/* <button onClick={Addnews}>add</button> */}
             </div>
           </div>
         </main>
@@ -144,7 +133,7 @@ export default function Home() {
         </Footer>
         
       </div>
-      <Script src="../javascript/mainhtml.js"></Script>
+      {/* <Script src="../javascript/mainhtml.js"></Script> */}
     </>
   );
 }

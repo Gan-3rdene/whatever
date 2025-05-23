@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import gamestyles from "@/styles/game.module.css";
 import Navigation from "../reusable/nav2.js";
 import Footer from "../reusable/footer.js";
+import GameScreen from "../reusable/gamescreen.js";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -15,33 +16,100 @@ const geistSans = Geist({
     variable: "--font-geist-mono",
     subsets: ["latin"],
   });
-
-
   
 // export default function Game({data}) { #add later
 export default function Game() {
-  // const [data, setData] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState("");
+    const [gameId, setGameId] = useState(null);
+    const [selectedRating, setSelectedRating] = useState(null);
+    const [averageRating, setAverageRating] = useState(0);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch('http://localhost:3000/whatever/api/game/game');
-  //       const json = await res.json();
-  //       setData(json);
-  //     } catch (error) {
-  //       console.error("error data fetch", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-    
-    // const fetchData = async () => {
-    //   const res = await fetch('http://localhost:3000/whatever/api/game/game');
-    //   const data = await res.json();
-    //   return data;
-    // }
+    const fetchRatings = useCallback(async () => {
+        if (!gameId) return;
+        try {
+          const res = await fetch(`http://localhost:5009/rating/${gameId}`);
+          if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+          const data = await res.json();
+          setAverageRating(data.averageRating);
+        } catch (error) {
+          console.error("Error fetching ratings", error);
+        }
+      }, [gameId]);
 
-    // const data = fetchData();
+      const fetchComments = useCallback(async () => {
+        if (!gameId) return;
+        try {
+          const res = await fetch(`http://localhost:5008/comments/${gameId}`);
+          if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+          const data = await res.json();
+          const filtered = data.filter((c) => c.gameId === gameId);
+          setComments(filtered);
+        } catch (error) {
+          console.error("Error fetching comments", error);
+        }
+      }, [gameId]);
+
+      useEffect(() => {
+        const stored = sessionStorage.getItem("selectedGameID");
+        setGameId(stored);
+      }, []);
+
+      useEffect(() => {
+        fetchRatings();
+        fetchComments();
+      }, [gameId, fetchRatings, fetchComments]);
+
+      const handleRatingSubmit = async () => {
+        const username = sessionStorage.getItem("username");
+        if (!username) {
+          alert("Login to rate the game");
+          return;
+        }
+        if (!selectedRating) {
+          alert("Select a rating");
+          return;
+        }
+
+        try {
+          const res = await fetch("http://localhost:5009/ratingpost", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, rating: selectedRating, gameId }),
+        });
+        if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+          await res.json();
+          
+          await fetchRatings();
+          setSelectedRating(null);
+        } catch (error) {
+          console.error("Error submitting rating", error);
+        }
+      };
+
+      const handleStarClick = (rating) => setSelectedRating(rating);
+
+      const handleCommentSubmit = async () => {
+        const username = sessionStorage.getItem("username");
+        if (!username) {
+          alert("Login to comment");
+          return;
+        }
+
+        try {
+          const res = await fetch("http://localhost:5008/commentpost", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, comment: newComment, gameId }),
+          });
+          if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+          const data = await res.json();
+          setComments((prev) => [...prev, data.data]);
+          setNewComment("");
+        } catch (error) {
+          console.error("Error submitting comment", error);
+        }
+      };
 
     return (
       <>
@@ -65,7 +133,8 @@ export default function Game() {
                     {/* {data.map((game) => (
                       <img key={game.id} classname={gamestyles.gamePart} src={game.cover}></img>
                     ))} */}
-                    <img class={gamestyles.gamePart} src="/whatever/resources/screenshot/snake.png"/>
+                    {/* <img class={gamestyles.gamePart} src="/whatever/resources/screenshot/snake.png"/> */}
+                    <GameScreen/>
                     <div class={gamestyles.endRow}>
                       {/* {data.map((game) => (
                         <p key={game.id} className={gamestyles.title}>
@@ -73,11 +142,20 @@ export default function Game() {
                         </p>
                       ))} */}
                       <div class={gamestyles.row}>
+
+                        <div className="row">
+                          {[1, 2, 3, 4, 5].map((num) => (
+                            <span key={num} className={`fa fa-star ${num <= selectedRating ? "checked" : ""}`} onClick={() => handleStarClick(num)}></span>
+                          ))}
+                          <button className="button" onClick={() => handleRatingSubmit(selectedRating)}>Submit</button>
+                        </div>
+                        
+
+                        <p>{averageRating}</p>
+                        {/* <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> */}
                       </div>
                     </div>
                     <div class={gamestyles.startColumn}>
@@ -94,15 +172,18 @@ export default function Game() {
                     </div>
                     <div className={gamestyles.smallLine}/>
                     <div class={gamestyles.endRow}>
-                        <input type="text" placeholder="Leave a comment."/>
+                        <input type="text" value={newComment} onChange={(e) => setNewComment(e.target.value)} placeholder="Leave a comment."/>
+                        <button className="button" onClick={handleCommentSubmit}>Submit</button>
                     </div>
-                    <div class={gamestyles.row}>
-                      <div class={gamestyles.column}>
-                        <img src="/whatever/resources/circle-user-round.svg"/>
-                        <p>Qewp123</p>
+                    {comments.map((c) => (
+                      <div class={gamestyles.row}>
+                        <div class={gamestyles.column}>
+                          <img src="/whatever/resources/circle-user-round.svg"/>
+                          <p>{c.username}</p>
+                        </div>
+                          <p>{c.comment}</p>
                       </div>
-                        <p>Classic but gold, def worth your time!</p>
-                    </div>
+                    ))}
                 </div>
             </main>
 
@@ -112,15 +193,3 @@ export default function Game() {
       </>
     );
   }
-  
-// export async function getServerSideProps() {
-//   const res = await fetch('http://localhost:3000/whatever/api/game/game');
-//   const json = await res.json();
-//   const data = Array.isArray(json) ? json : [json];
-//   console.log("fetched: ",data);
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }

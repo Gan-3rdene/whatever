@@ -98,7 +98,7 @@ export default function LoginForm() {
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="phone">Phone number</label>
-                <input type="text" id="phone" name="phone" />
+                <input type="number" id="phone" name="phone" />
               </div>
             </>
           )}
@@ -112,13 +112,13 @@ export default function LoginForm() {
             <button className={styles.button} onClick={handleLogin}>Log in</button>
           </div>
 
-          <div className={styles.divider}></div>
+          {/* <div className={styles.divider}></div> */}
 
-          <div className={styles.businessLogin}>
+          {/* <div className={styles.businessLogin}>
             <button className={styles.button} onClick={() => console.log("Business Login")}>
               Business
             </button>
-          </div>
+          </div> */}
         </div>
       </main>
       

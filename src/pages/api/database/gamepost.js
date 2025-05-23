@@ -26,6 +26,7 @@ const gameSchema = new mongoose.Schema({
     tags: String,
     how_to_play: String,
     cover: String,
+    file: String,
 }, {collection: 'games'});
 const Game = mongoose.model('Game', gameSchema);
 
@@ -38,6 +39,7 @@ app.post('/gamepost', async(req, res) => {
             tags: req.body.tags,
             how_to_play: req.body.how_to_play,
             cover: req.body.cover,
+            file: req.body.file,
         });
         const savedUser = await newGame.save();
         res.status(200).json(savedUser);
